@@ -9,14 +9,15 @@ using Unity.VisualScripting;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    #region Publics
     [Header("Player Settings")]
     public float runSpeed = 6.0f;
     public float crouchSpeed = 1.0f;
-    public float proneSpeed = 1.0f;
+    public float proneSpeed = 0.5f;
     public float walkSpeed = 3.0f;
     public float rotationSpeed;
     public float transitionSpeed = 5.0f;
-    public float pronetransitionSpeed = 10.0f;
+    public float proneTransitionSpeed = 10.0f;
 
     [Header("Player Input Actions")]
     public InputActionReference move;
@@ -25,15 +26,17 @@ public class PlayerMovement : NetworkBehaviour
     public InputActionReference run;
 
     [Header("Camera and Animator")]
-    private Transform cameraMainTransform;
     public Animator anim;
+    #endregion
 
+    #region Privates
+    private Transform cameraMainTransform;
     private CapsuleCollider capCol;
     private Vector3 moveDirection;
     private Rigidbody rb;
     private bool isRunning;
-    private bool isCrouching;
-    private bool isProning;
+    public bool isCrouching;
+    public bool isProning;
     private bool isForcedCrouching;
     private bool isForcedProning;
     private float targetSpeed;
@@ -50,7 +53,7 @@ public class PlayerMovement : NetworkBehaviour
 
     public bool isMoving;
     private CinemachineCamera followCameraPlayer;
-
+    #endregion
 
     void OnEnable()
     {
@@ -62,6 +65,7 @@ public class PlayerMovement : NetworkBehaviour
         prone.action.canceled += ToggleProne;
     }
 
+    #region OnDisable,OnStart,Awake,Start etc etc
     void OnDisable()
     {
         crawl.action.started -= ToggleCrouch;
@@ -108,6 +112,9 @@ public class PlayerMovement : NetworkBehaviour
         PlayerInput playerInput = GetComponent<PlayerInput>();
         playerInput.enabled = true;
     }
+
+    #endregion
+
     private void Update()
     {
         if (!isLocalPlayer) { return; }
@@ -160,12 +167,12 @@ public class PlayerMovement : NetworkBehaviour
 
             if (movement.magnitude > 0)
             {
-                currentProneSpeed = Mathf.Lerp(currentProneSpeed, 2f, pronetransitionSpeed * Time.deltaTime);
+                currentProneSpeed = Mathf.Lerp(currentProneSpeed, 2f, proneTransitionSpeed * Time.deltaTime);
                 currentCrouchSpeed = 0f;
             }
             else
             {
-                currentProneSpeed = Mathf.Lerp(currentProneSpeed, 0f, pronetransitionSpeed * Time.deltaTime);
+                currentProneSpeed = Mathf.Lerp(currentProneSpeed, 0f, proneTransitionSpeed * Time.deltaTime);
             }
             anim.SetFloat(proneStateHash, currentProneSpeed);
 
@@ -178,7 +185,7 @@ public class PlayerMovement : NetworkBehaviour
             currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, transitionSpeed * Time.deltaTime);
 
             currentCrouchSpeed = Mathf.Lerp(currentCrouchSpeed, 0.0f, transitionSpeed * Time.deltaTime);
-            currentProneSpeed = Mathf.Lerp(currentProneSpeed, 0.0f, pronetransitionSpeed * Time.deltaTime);
+            currentProneSpeed = Mathf.Lerp(currentProneSpeed, 0.0f, proneTransitionSpeed * Time.deltaTime);
 
             anim.SetFloat(crouchStateHash, currentCrouchSpeed);
             anim.SetFloat(proneStateHash, currentProneSpeed);

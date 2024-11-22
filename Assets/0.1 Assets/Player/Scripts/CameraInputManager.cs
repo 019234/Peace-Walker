@@ -11,6 +11,7 @@ public class ShakeInput : MonoBehaviour
     public InputActionReference movebutton;
     private bool isMoving;
 
+    private bool isCrouching;
 
     void Awake()
     {
@@ -26,7 +27,7 @@ public class ShakeInput : MonoBehaviour
         isMoving = moveInput.magnitude > 0.1f;
         //Debug.Log(isMoving);
 
-        if (runButton.action.IsPressed() && isMoving)
+        if (runButton.action.IsPressed() && isMoving && !playerMovement.isCrouching && !playerMovement.isProning)
         {
             cameraShake.TriggerShake();
         }

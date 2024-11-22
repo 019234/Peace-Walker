@@ -42,9 +42,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PickUp",
+                    "name": "PickUpL",
                     "type": "Button",
                     "id": "373d2786-c131-475f-89f9-9b5c25e389dc",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PickUpR",
+                    "type": "Button",
+                    "id": "01555426-0bf6-4641-983d-0add66d19e2b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -183,11 +192,22 @@
                 {
                     "name": "",
                     "id": "7daac80f-1f14-4648-8e42-460552f68eb9",
-                    "path": "<Keyboard>/e",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "PickUp",
+                    "groups": ";Keyboard",
+                    "action": "PickUpL",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b8e0d31-f714-469a-bf76-740e89f67ed0",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard",
+                    "action": "PickUpR",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -223,6 +243,11 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }
