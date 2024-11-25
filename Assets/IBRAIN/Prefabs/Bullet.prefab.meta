@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c2be06b8610fb9242a9cfd2c3602eadb
+timeCreated: 1523628556
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116128
+  packageName: IBrain - A Smart Character A.I
+  packageVersion: 1.1C
+  assetPath: Assets/IBRAIN/Prefabs/Bullet.prefab
+  uploadId: 248607

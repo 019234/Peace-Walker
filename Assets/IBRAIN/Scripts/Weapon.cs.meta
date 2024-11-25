@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 2ddd6b741c8e19a42aad5a9a5e05798c
+timeCreated: 1523628142
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116128
+  packageName: IBrain - A Smart Character A.I
+  packageVersion: 1.1C
+  assetPath: Assets/IBRAIN/Scripts/Weapon.cs
+  uploadId: 248607

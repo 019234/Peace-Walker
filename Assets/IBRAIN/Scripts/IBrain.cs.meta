@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 657f7b5e38389534787ce9dab0d3f5fc
+timeCreated: 1522648252
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116128
+  packageName: IBrain - A Smart Character A.I
+  packageVersion: 1.1C
+  assetPath: Assets/IBRAIN/Scripts/IBrain.cs
+  uploadId: 248607

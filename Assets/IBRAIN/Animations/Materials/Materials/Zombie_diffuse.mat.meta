@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b5b7c6019097a634aa1650ff8d84d240
+timeCreated: 1522517095
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116128
+  packageName: IBrain - A Smart Character A.I
+  packageVersion: 1.1C
+  assetPath: Assets/IBRAIN/Animations/Materials/Materials/Zombie_diffuse.mat
+  uploadId: 248607

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 286bf15ca96444145934de48abf5e303
+timeCreated: 1522654548
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116128
+  packageName: IBrain - A Smart Character A.I
+  packageVersion: 1.1C
+  assetPath: Assets/IBRAIN/Controllers/IBrain.controller
+  uploadId: 248607
