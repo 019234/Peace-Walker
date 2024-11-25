@@ -24,6 +24,8 @@ public class PlayerMovement : NetworkBehaviour
     public InputActionReference prone;
     public InputActionReference crawl;
     public InputActionReference run;
+    public InputActionReference jump;
+
 
     [Header("Camera and Animator")]
     public Animator anim;
@@ -63,6 +65,7 @@ public class PlayerMovement : NetworkBehaviour
         run.action.canceled += Run;
         prone.action.started += ToggleProne;
         prone.action.canceled += ToggleProne;
+
     }
 
     #region OnDisable,OnStart,Awake,Start etc etc
@@ -139,6 +142,7 @@ public class PlayerMovement : NetworkBehaviour
 
         Vector3 desiredMoveDirection = forward * moveDirection.z + right * moveDirection.x;
         Vector3 movement = desiredMoveDirection.normalized;
+
 
         if (isCrouching || isForcedCrouching)
         {
@@ -250,6 +254,7 @@ public class PlayerMovement : NetworkBehaviour
         Debug.Log("Run triggered");
     }
 
+
     private void OnTriggerEnter(Collider collision)
     {
         if (!isLocalPlayer) { return; }
@@ -283,6 +288,7 @@ public class PlayerMovement : NetworkBehaviour
             anim.SetBool("isProning", false);
         }
     }
+
 
     private bool IsGrounded()
     {
