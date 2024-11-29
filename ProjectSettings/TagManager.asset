@@ -7,7 +7,7 @@ TagManager:
   - PlayerFollowCamera
   - Iso
   - Brief
-  - Vault
+  - Vaultable
   layers:
   - Default
   - TransparentFX

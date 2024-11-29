@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Scene
+      name: Vault
       takeName: Scene
       internalID: -623603649343465320
-      firstFrame: 10
-      lastFrame: 57
+      firstFrame: 1
+      lastFrame: 250
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
