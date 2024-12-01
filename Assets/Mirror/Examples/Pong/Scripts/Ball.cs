@@ -16,7 +16,7 @@ namespace Mirror.Examples.Pong
 
             // Serve the ball from left player
 #if UNITY_6000_0_OR_NEWER
-            rigidbody2d.velocity = Vector2.right * speed;
+            rigidbody2d.linearVelocity = Vector2.right * speed;
 #else
             rigidbody2d.velocity = Vector2.right * speed;
 #endif
@@ -59,7 +59,7 @@ namespace Mirror.Examples.Pong
 
                 // Set Velocity with dir * speed
 #if UNITY_6000_0_OR_NEWER
-                rigidbody2d.velocity = dir * speed;
+                rigidbody2d.linearVelocity = dir * speed;
 #else
                 rigidbody2d.velocity = dir * speed;
 #endif

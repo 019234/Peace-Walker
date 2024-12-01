@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Mirror.Examples.PickupsDropsChilds
 {
