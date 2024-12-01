@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: faa70b4901d744342bb628475cb0adf3
+timeCreated: 1522656721
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 116128
+  packageName: IBrain - A Smart Character A.I
+  packageVersion: 1.1C
+  assetPath: Assets/IBRAIN/Scenes/Test.unity
+  uploadId: 248607

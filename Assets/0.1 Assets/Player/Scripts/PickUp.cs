@@ -1,12 +1,14 @@
 using System.Collections;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SimpleObjectPicker : MonoBehaviour
+public class PickUpScript : NetworkBehaviour
 {
     public InputActionReference pickUpLAction;
     public InputActionReference pickUpRAction;
     public InputActionReference testAction;
+    public InputActionReference releaseTestAction; // New action reference for releasing objects
 
     [Header("Hold Positions")]
     public Transform leftBriefHoldPosition;
@@ -42,8 +44,16 @@ public class SimpleObjectPicker : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
     }
 
+    [ClientCallback]
+    public override void OnStartAuthority()
+    {
+        base.OnStartAuthority();
+    }
+
     void Update()
     {
+        if (!isLocalPlayer) { return; }
+
         HandlePickUp(ref grabbedObjectL, ref isHoldingL, pickUpLAction, leftBriefHoldPosition, leftIsoHoldPosition, leftDetectionOffset);
         HandlePickUp(ref grabbedObjectR, ref isHoldingR, pickUpRAction, rightBriefHoldPosition, rightIsoHoldPosition, rightDetectionOffset);
 
@@ -60,20 +70,26 @@ public class SimpleObjectPicker : MonoBehaviour
         {
             if (grabbedObjectL != null && (grabbedObjectL.CompareTag("Iso") || grabbedObjectL.CompareTag("Brief")))
             {
-
                 StartCoroutine(OnBackL(grabbedObjectL, testLeftBriefPlaceholder, testIsoPlaceholder));
             }
 
             if (grabbedObjectR != null && (grabbedObjectR.CompareTag("Iso") || grabbedObjectR.CompareTag("Brief")))
             {
-
                 StartCoroutine(OnBackR(grabbedObjectR, testRightBriefPlaceholder, testIsoPlaceholder));
             }
+        }
+
+        // Release objects from placeholders when the release button is held
+        if (releaseTestAction.action.IsPressed())
+        {
+            ReleaseFromPlaceholders();
         }
     }
 
     private void HandlePickUp(ref GameObject grabbedObject, ref bool isHolding, InputActionReference pickUpAction, Transform briefHoldPosition, Transform isoHoldPosition, float sideOffset)
     {
+        if (!isLocalPlayer) { return; }
+
         if (pickUpAction.action.WasPressedThisFrame() && !isHolding)
         {
             TryPickUp(ref grabbedObject, ref isHolding, briefHoldPosition, isoHoldPosition, sideOffset);
@@ -82,6 +98,8 @@ public class SimpleObjectPicker : MonoBehaviour
 
     private void HandleRelease(ref GameObject grabbedObject, ref bool isHolding)
     {
+        if (!isLocalPlayer) { return; }
+
         if (grabbedObject != null && (pickUpLAction.action.WasReleasedThisFrame() || pickUpRAction.action.WasReleasedThisFrame() || playerMovement.isProning))
         {
             ReleaseObject(ref grabbedObject, ref isHolding);
@@ -90,6 +108,7 @@ public class SimpleObjectPicker : MonoBehaviour
 
     private void TryPickUp(ref GameObject grabbedObject, ref bool isHolding, Transform briefHoldPosition, Transform isoHoldPosition, float sideOffset)
     {
+        if (!isLocalPlayer) { return; }
         Vector3 detectionPosition = transform.position + transform.right * sideOffset;
         Collider[] colliders = Physics.OverlapSphere(detectionPosition, detectionRadius);
 
@@ -149,17 +168,16 @@ public class SimpleObjectPicker : MonoBehaviour
 
     private void RotateHeldObject(GameObject objectToRotate)
     {
+        if (!isLocalPlayer) { return; }
+
         objectToRotate.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.World);
     }
 
-    // Coroutine to move the object after 2 seconds
     private IEnumerator OnBackL(GameObject grabbedObjectL, Transform briefPlaceholder, Transform isoPlaceholder)
     {
         anim.SetBool("OnBackL", true);
-
-        yield return new WaitForSeconds(0.13f);  // Wait for 3 seconds for the animation to finish
-
-        anim.SetBool("OnBackL", false);  // Stop the animation
+        yield return new WaitForSeconds(0.13f);
+        anim.SetBool("OnBackL", false);
 
         if (grabbedObjectL.CompareTag("Iso"))
         {
@@ -173,12 +191,9 @@ public class SimpleObjectPicker : MonoBehaviour
 
     private IEnumerator OnBackR(GameObject grabbedObjectR, Transform briefPlaceholder, Transform isoPlaceholder)
     {
-
         anim.SetBool("OnBackR", true);
-
-        yield return new WaitForSeconds(0.13f);  // Wait for 3 seconds for the animation to finish
-
-        anim.SetBool("OnBackR", false);  // Stop the animation
+        yield return new WaitForSeconds(0.13f);
+        anim.SetBool("OnBackR", false);
 
         if (grabbedObjectR.CompareTag("Iso"))
         {
@@ -220,6 +235,7 @@ public class SimpleObjectPicker : MonoBehaviour
 
     private void MoveObjectToBriefPlaceholder(GameObject grabbedObject, Transform briefPlaceholder)
     {
+        if (!isLocalPlayer) { return; }
         if (grabbedObject != null && briefPlaceholder.childCount == 0)
         {
             grabbedObject.transform.position = briefPlaceholder.position;
@@ -244,5 +260,65 @@ public class SimpleObjectPicker : MonoBehaviour
                 isHoldingR = false;
             }
         }
+    }
+
+    private void ReleaseFromPlaceholders()
+    {
+        // Release from testIsoPlaceholder
+        if (testIsoPlaceholder.childCount > 0)
+        {
+            Transform child = testIsoPlaceholder.GetChild(0);
+            DetachObject(child.gameObject);
+            playerMovement.walkSpeed += 0.6f;
+            playerMovement.crouchSpeed += 0.6f;
+            playerMovement.runSpeed += 0.6f;
+        }
+
+        // Release from testLeftBriefPlaceholder
+        if (testLeftBriefPlaceholder.childCount > 0)
+        {
+            Transform child = testLeftBriefPlaceholder.GetChild(0);
+            DetachObject(child.gameObject);
+            playerMovement.walkSpeed += 0.3f;
+            playerMovement.crouchSpeed += 0.3f;
+            playerMovement.runSpeed += 0.3f;
+        }
+
+        // Release from testRightBriefPlaceholder
+        if (testRightBriefPlaceholder.childCount > 0)
+        {
+            Transform child = testRightBriefPlaceholder.GetChild(0);
+            DetachObject(child.gameObject);
+            playerMovement.walkSpeed += 0.3f;
+            playerMovement.crouchSpeed += 0.3f;
+            playerMovement.runSpeed += 0.3f;
+        }
+    }
+
+    private void DetachObject(GameObject grabbedObject)
+    {
+        if (!isLocalPlayer) { return; }
+
+        if (grabbedObject != null)
+        {
+            Rigidbody rb = grabbedObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+                rb.detectCollisions = true;
+            }
+
+            grabbedObject.transform.SetParent(null);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Vector3 leftDetectionPosition = transform.position + transform.right * leftDetectionOffset;
+        Vector3 rightDetectionPosition = transform.position + transform.right * rightDetectionOffset;
+
+        Gizmos.DrawWireSphere(leftDetectionPosition, detectionRadius);
+        Gizmos.DrawWireSphere(rightDetectionPosition, detectionRadius);
     }
 }

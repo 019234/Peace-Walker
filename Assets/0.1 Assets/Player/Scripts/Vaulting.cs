@@ -22,7 +22,7 @@ public class Vaulting : MonoBehaviour
 
     private Animator anim;
 
-    private SimpleObjectPicker simpleObjectPicker;
+    private PickUpScript simpleObjectPicker;
 
     private void Start()
     {
@@ -33,7 +33,7 @@ public class Vaulting : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        simpleObjectPicker = GetComponent<SimpleObjectPicker>();
+        simpleObjectPicker = GetComponent<PickUpScript>();
 
     }
 
