@@ -662,7 +662,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1001 &1706097575
+=======
+--- !u!1001 &2024770977
+>>>>>>> parent of a20dff7 (UPDATED)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -670,6 +674,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 8763101912591529871, guid: 5a577542a281e0a448dc3b383023e1f2, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -765,12 +770,77 @@ PrefabInstance:
     - target: {fileID: 8763101913705298807, guid: 5a577542a281e0a448dc3b383023e1f2, type: 3}
       propertyPath: m_Name
       value: Room Menu
+=======
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419671601067793829, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1110351978771253787, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 4832288940608221808, guid: e4469c1fce3476c4ebce609374e33fb2, type: 3}
+    - target: {fileID: 1110351978771253787, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: spawnPrefabs.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989867868931201346, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_Name
+      value: NetworkManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989867868931201346, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+>>>>>>> parent of a20dff7 (UPDATED)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
+<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 5a577542a281e0a448dc3b383023e1f2, type: 3}
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: 25d375dca4d81ca47b4415a40fdd54ce, type: 3}
+>>>>>>> parent of a20dff7 (UPDATED)
 --- !u!4 &1397729308018908
 Transform:
   m_ObjectHideFlags: 0
@@ -2333,6 +2403,7 @@ Transform:
   - {fileID: 8857696587777329509}
   m_Father: {fileID: 7521342936821102120}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!4 &415738351389219027
 Transform:
   m_ObjectHideFlags: 0
@@ -2363,6 +2434,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of a20dff7 (UPDATED)
 --- !u!4 &420132845212411907
 Transform:
   m_ObjectHideFlags: 0
@@ -6706,6 +6779,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &1989867869327070435
 GameObject:
   m_ObjectHideFlags: 0
@@ -6840,6 +6914,8 @@ MonoBehaviour:
   PublishPort: 20000
   ServerPort: 0
   _username: 
+=======
+>>>>>>> parent of a20dff7 (UPDATED)
 --- !u!4 &1995662965638642032
 Transform:
   m_ObjectHideFlags: 0
@@ -24046,8 +24122,13 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: 1
+<<<<<<< HEAD
         LegacyInput: 
         LegacyGain: 1
+=======
+        LegacyInput: Mouse X
+        LegacyGain: 200
+>>>>>>> parent of a20dff7 (UPDATED)
         CancelDeltaTime: 0
       InputValue: -3830
       Driver:
@@ -24059,8 +24140,13 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: -5630151704836100654, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: -1
+<<<<<<< HEAD
         LegacyInput: 
         LegacyGain: 1
+=======
+        LegacyInput: Mouse Y
+        LegacyGain: -200
+>>>>>>> parent of a20dff7 (UPDATED)
         CancelDeltaTime: 0
       InputValue: 140
       Driver:
@@ -24072,8 +24158,13 @@ MonoBehaviour:
       Input:
         InputAction: {fileID: 5082991133974614888, guid: 1d6e640e716dc4ff6989b73d02023f2b, type: 3}
         Gain: 1
+<<<<<<< HEAD
         LegacyInput: 
         LegacyGain: 1
+=======
+        LegacyInput: Mouse ScrollWheel
+        LegacyGain: 200
+>>>>>>> parent of a20dff7 (UPDATED)
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
@@ -26967,15 +27058,26 @@ GameObject:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+<<<<<<< HEAD
   - {fileID: 6112980647947860729}
   - {fileID: 29839245}
   - {fileID: 8649505127570916901}
   - {fileID: 832575519}
   - {fileID: 1664622102}
+=======
+>>>>>>> parent of a20dff7 (UPDATED)
   - {fileID: 330585546}
-  - {fileID: 419671599044136964}
   - {fileID: 410087041}
+  - {fileID: 832575519}
   - {fileID: 3843749945708601436}
+  - {fileID: 2024770977}
+  - {fileID: 1664622102}
   - {fileID: 593119204}
+<<<<<<< HEAD
   - {fileID: 187287289}
   - {fileID: 1706097575}
+=======
+  - {fileID: 29839245}
+  - {fileID: 6112980647947860729}
+  - {fileID: 7701617963282616285}
+>>>>>>> parent of a20dff7 (UPDATED)
